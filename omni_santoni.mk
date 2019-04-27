@@ -14,12 +14,24 @@
 # limitations under the License.
 #
 
-# Specify phone tech before including full_phone
-$(call inherit-product, vendor/omni/config/gsm.mk)
+# Release name
+PRODUCT_RELEASE_NAME := santoni
 
-$(call inherit-product, device/xiaomi/santoni/full_santoni.mk)
+$(call inherit-product, build/target/product/embedded.mk)
 
 # Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
+$(call inherit-product, vendor/pb/config/common.mk)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.keystore=msm8937
+
+# Kernel
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/prebuilt/Image.gz-dtb:kernel
+
+# Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := santoni
 PRODUCT_NAME := omni_santoni
+PRODUCT_BRAND := Xiaomi
+PRODUCT_MODEL := Redmi 4X
+PRODUCT_MANUFACTURER := Xiaomi
