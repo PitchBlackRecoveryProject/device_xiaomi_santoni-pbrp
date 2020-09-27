@@ -114,6 +114,3 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Logcat
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
-
-#Official
-PB_OFFICIAL := true
